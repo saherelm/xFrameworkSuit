@@ -1,0 +1,29 @@
+<v-page
+  [hasSide]="true"
+  [actions]="actions"
+  [toolbarShowSubTitle]="true"
+  [toolbarHasBack]="toolbarHasBack"
+  [toolbarShowBack]="toolbarShowBack"
+  [toolbarSubTitle]="toolbarSubTitle"
+  [toolbarShowProgressBar]="isLoading"
+  [toolbarBackHandler]="toolbarBackHandler"
+>
+  <!-- Theme Manager -->
+  <!-- [minAllowedThemeFileSize]="1" -->
+  <x-theme-manager
+    [isInPage]="true"
+    [wrapWithCard]="true"
+    [actionBarColor]="ColorNames.Dark"
+    [listEmptyColor]="ColorNames.Light"
+    [themeUploadShowFileDropArea]="false"
+    [themeUploadColor]="ColorNames.Light"
+    (tabChange)="handleTabChange($event)"
+    [listSearchBarColor]="ColorNames.Dark"
+    (themeChange)="handleThemeChange($event)"
+    [listEmptyMessageColor]="ColorNames.Light"
+    [actionProvider]="themeManagerActionProvider"
+    [themeUploadFileDropAreaColor]="ColorNames.Light"
+    [listSearchBarSearchInputColor]="ColorNames.DarkTint"
+    [listSearchBarSearchButtonIconColor]="ColorNames.Light"
+  ></x-theme-manager>
+</v-page>

@@ -1,0 +1,53 @@
+:host {
+  --dialog-toolbar-height: 0px;
+}
+
+x-icon {
+  --size: 24px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 !important;
+}
+
+::ng-deep.fullscreen {
+  --width: 100% !important;
+  --height: 100% !important;
+}
+
+.v-base-dialog {
+  width: 100%;
+  height: calc(100% - var(--dialog-toolbar-height));
+}
+
+.v-base-dialog-container {
+  height: 100%;
+}
+
+.v-base-dialog-content {
+  height: 100%;
+  overflow-y: scroll;
+  background-color: var(--x-color-light);
+}
+
+.v-base-dialog-toolbar-area {
+  margin: 8px;
+}
+
+.v-base-dialog-toolbar-item {
+  width: auto;
+  height: 48px;
+}
+
+.v-base-dialog-toolbar-button {
+  width: 32px;
+  margin: {
+    left: 4px;
+    right: 4px;
+  }
+}

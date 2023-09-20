@@ -1,0 +1,120 @@
+<!-- Component Template -->
+<ng-container *ngIf="getValue(wrapWithCard) | async; else componentsRef">
+  <x-card
+    class="v-card"
+    [color]="getValue(cardColor) | async"
+    [ngClass]="getValue(cssClass) | async"
+    [isInPage]="getValue(isInPage) | async"
+    [title]="getResourceValue(title) | async"
+    [showFooter]="getValue(cardShowFooter) | async"
+    [showActions]="getValue(cardShowActions) | async"
+    [subTitle]="getResourceValue(cardSubTitle) | async"
+    [foregroundColor]="getValue(cardForegroundColor) | async"
+    [showHeader]="
+      (notEmptyValue(title) | async) || (notEmptyValue(cardSubTitle) | async)
+    "
+  >
+    <!-- Content -->
+    <ng-container *ngTemplateOutlet="componentsRef"></ng-container>
+
+    <!-- Actions -->
+    <div class="x-actions" actions *ngIf="getValue(cardShowActions) | async">
+      <ng-content select="[actions]"></ng-content>
+    </div>
+
+    <!-- Footer -->
+    <div class="x-footer" footer *ngIf="getValue(cardShowFooter) | async">
+      <ng-content select="[footer]"></ng-content>
+    </div>
+  </x-card>
+</ng-container>
+
+<!-- Component's itSelf Template -->
+<ng-template #componentsRef>
+  <section
+    *ngIf="model"
+    class="v-file x-component-wrapper"
+    [ngClass]="getValue(cssClass) | async"
+  >
+    <ng-container
+      *ngTemplateOutlet="
+        (getValue(presentType) | async) === PresentTypes.AsDescriptionList
+          ? descriptionListRef
+          : (getValue(presentType) | async) === PresentTypes.AsForm
+          ? formRef
+          : nothingRef
+      "
+    ></ng-container>
+  </section>
+</ng-template>
+
+<!-- Description List -->
+<ng-template #descriptionListRef>
+  <!-- Description List Presenting -->
+  <x-description-list
+    [model]="model"
+    [color]="getValue(color) | async"
+    [hiddenModelKeys]="hiddenModelKeys"
+    [modelKeyProvider]="modelKeyProvider"
+    [cssClass]="getValue(cssClass) | async"
+    [sortOrderModelKeys]="sortOrderModelKeys"
+    [availableModelKeys]="availableModelKeys"
+    [modelValueProvider]="modelValueProvider"
+    [labelColor]="getValue(labelColor) | async"
+    [showLabels]="getValue(showLabels) | async"
+    [valueColor]="getValue(valueColor) | async"
+    [hiddenLabelModelKeys]="hiddenLabelModelKeys"
+    [actionProvider]="descriptionListActionProvider"
+    [foregroundColor]="getValue(foregroundColor) | async"
+  >
+    <!-- Name -->
+    <x-description-list-item #nameIten [name]="FieldNames.name">
+      <ng-container *ngTemplateOutlet="nameOrThumbnailRef"></ng-container>
+    </x-description-list-item>
+
+    <!-- Thumbnail -->
+    <x-description-list-item #thumbnailItem [name]="FieldNames.thumbPath">
+      <ng-container *ngTemplateOutlet="nameOrThumbnailRef"></ng-container>
+    </x-description-list-item>
+  </x-description-list>
+</ng-template>
+
+<!-- Form Template -->
+<ng-template #formRef> </ng-template>
+
+<!-- Name or Thumbnail Template -->
+<ng-template #nameOrThumbnailRef>
+  <ng-container *ngIf="model">
+    <div fxLayout="row" class="v-file-item" [matTooltip]="model.name">
+      <x-thumbnail
+        fxFlex="nogrow"
+        [type]="
+          model.type === FileTypes.Image ||
+          model.type === FileTypes.CoverImage ||
+          model.type === FileTypes.ProfileImage
+            ? ThumbnailTypes.CUSTOM
+            : ThumbnailTypes.GENERAL
+        "
+        [loading]="isLoading"
+        class="v-file-thumbnail"
+        [uiDisabled]="uiDisabled"
+        [identifier]="
+          model.type === FileTypes.Image ||
+          model.type === FileTypes.CoverImage ||
+          model.type === FileTypes.ProfileImage
+            ? model.thumbPath
+            : model.path
+        "
+      ></x-thumbnail>
+      <div
+        class="v-file-title text-truncate"
+        [class.mobile]="isMobileUi$ | async"
+      >
+        {{ model.name }}
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<!-- Nothing Template -->
+<ng-template #nothingRef></ng-template>

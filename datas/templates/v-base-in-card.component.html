@@ -1,0 +1,47 @@
+<!--                               -->
+<!-- VBaseInCardComponent Template -->
+<!--                               -->
+
+<!-- Component Template -->
+<ng-container *ngIf="getValue(wrapWithCard) | async; else componentsRef">
+    <x-card
+      class="v-card"
+      [color]="getValue(cardColor) | async"
+      [ngClass]="getValue(cardCssClass) | async"
+      [isInPage]="getValue(isInPage) | async"
+      [title]="getResourceValue(cardTitle) | async"
+      [showFooter]="getValue(cardShowFooter) | async"
+      [showActions]="getValue(cardShowActions) | async"
+      [subTitle]="getResourceValue(cardSubTitle) | async"
+      [foregroundColor]="getValue(cardForegroundColor) | async"
+      [showHeader]="
+        (notEmptyValue(cardTitle) | async) ||
+        (notEmptyValue(cardSubTitle) | async)
+      "
+    >
+      <!-- Content -->
+      <ng-container *ngTemplateOutlet="componentsRef"></ng-container>
+  
+      <!-- Actions -->
+      <div class="x-actions" actions *ngIf="getValue(cardShowActions) | async">
+        <ng-content select="[actions]"></ng-content>
+      </div>
+  
+      <!-- Footer -->
+      <div class="x-footer" footer *ngIf="getValue(cardShowFooter) | async">
+        <ng-content select="[footer]"></ng-content>
+      </div>
+    </x-card>
+  </ng-container>
+  
+  <!-- Component's itSelf Template -->
+  <ng-template #componentsRef>
+    <section class="v-component-wrapper">
+      
+    </section>
+  </ng-template>
+  
+  <!--                                -->
+  <!-- /VBaseInCardComponent Template -->
+  <!--                                -->
+  

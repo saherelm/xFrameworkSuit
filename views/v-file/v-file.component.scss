@@ -1,0 +1,52 @@
+.v-file-item {
+  width: 100%;
+  text-align: start;
+
+  margin-bottom: 16px;
+}
+
+.v-file-item,
+.v-file-thumbnail {
+  height: 32px;
+}
+
+.v-file-thumbnail {
+  width: 32px;
+}
+
+.v-file-details {
+  .v-file-item,
+  .v-file-thumbnail {
+    height: 128px;
+  }
+
+  .v-file-thumbnail {
+    width: 128px;
+  }
+
+  x-thumbnail {
+    --thumbnail-size: 128px;
+  }
+}
+
+.v-file-title,
+.v-file-thumbnail {
+  margin: {
+    left: 4px;
+    right: 4px;
+  }
+}
+
+.v-file-title {
+  text-align: start;
+  max-width: 250px;
+
+  &.mobile {
+    max-width: 200px;
+  }
+
+  margin: {
+    top: auto;
+    bottom: auto;
+  }
+}

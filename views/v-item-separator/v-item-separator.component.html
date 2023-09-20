@@ -1,0 +1,11 @@
+<!-- Component -->
+<section
+  class="v-item-separator"
+  [xColor]="getValue(color) | async"
+  [ngClass]="getArrayValue(cssClass) | async"
+  [isForeground]="getValue(isForegroundColor) | async"
+>
+  <span class="v-separator ion-margin-end text-truncate">{{
+    getSeparator() | async
+  }}</span>
+</section>

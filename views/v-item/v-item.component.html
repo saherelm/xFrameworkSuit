@@ -1,0 +1,47 @@
+<section
+  class="v-item"
+  [matTooltip]="getTooltip() | async"
+  [ngClass]="getArrayValue(cssClass) | async"
+  [matTooltipDisabled]="!(getValue(showTooltip) | async)"
+  *ngIf="
+    (notNullOrUndefinedValue(title) | async) || (notEmptyValue(value) | async)
+  "
+>
+  <!-- Title -->
+  <ng-container
+    *ngIf="
+      (getValue(showTitle) | async) && (notNullOrUndefinedValue(title) | async)
+    "
+  >
+    <span
+      class="v-item-title text-truncate"
+      [xColor]="getValue(titleColor) | async"
+      [ngClass]="getArrayValue(titleCssClass) | async"
+      [isForeground]="getValue(isTitleForegroundColor) | async"
+      [class.mobile]="
+        (isMobileUi$ | async) && (getValue(applyMobileDisplay) | async)
+      "
+      >{{ getResourceValue(title) | async }}</span
+    >
+  </ng-container>
+
+  <!-- Value -->
+  <ng-container
+    *ngIf="(getValue(showValue) | async) && (notEmptyValue(value) | async)"
+  >
+    <span
+      class="v-item-value text-truncate"
+      [xColor]="getValue(valueColor) | async"
+      [ngClass]="getArrayValue(valueCssClass) | async"
+      [isForeground]="getValue(isValueForegroundColor) | async"
+      [class.mobile]="
+        (isMobileUi$ | async) && (getValue(applyMobileDisplay) | async)
+      "
+      >{{
+        (getValue(applyLocaleOnValue) | async)
+          ? applyLocale(getValue(value) | async)
+          : (getValue(value) | async)
+      }}</span
+    >
+  </ng-container>
+</section>

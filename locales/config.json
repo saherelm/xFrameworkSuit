@@ -1,0 +1,1367 @@
+{
+    "defaultLocale": "fa-IR",
+    "localDescriptors": [
+        {
+            "name": "persian",
+            "locale": "fa-IR",
+            "language": "fa",
+            "direction": "rtl"
+        },
+        {
+            "name": "english",
+            "locale": "en-US",
+            "language": "en",
+            "direction": "ltr"
+        }
+    ],
+    "frameworkExceptionResources": [
+        {
+            "ex_100": {
+                "en": "Invalid Data ...",
+                "fa": "داده نا معتبر"
+            }
+        },
+        {
+            "ex_101": {
+                "en": "Invalid Date ...",
+                "fa": "تاریخ نامعتبر"
+            }
+        },
+        {
+            "ex_102": {
+                "en": "Bad Request ...",
+                "fa": "درخواست اشتباه"
+            }
+        },
+        {
+            "ex_103": {
+                "en": "Invalid Args ...",
+                "fa": "ورودی نامعتبر"
+            }
+        },
+        {
+            "ex_104": {
+                "en": "Invalid Message ...",
+                "fa": "پیام نامعتبر"
+            }
+        },
+        {
+            "ex_105": {
+                "en": "Invalid Token ...",
+                "fa": "نشانه نامعتبر"
+            }
+        },
+        {
+            "ex_106": {
+                "en": "Invalid Verification Code ...",
+                "fa": "کد اععتبارسنجی نامعتبر"
+            }
+        },
+        {
+            "ex_107": {
+                "en": "Invalid Email Address ...",
+                "fa": "پست الکترونیک نامعتبر"
+            }
+        },
+        {
+            "ex_108": {
+                "en": "Invalid Mobile Number ...",
+                "fa": "شماره تلفن همراه نامعتبر"
+            }
+        },
+        {
+            "ex_109": {
+                "en": "Invalid Password ...",
+                "fa": "کلمه عبور نامعتبر"
+            }
+        },
+        {
+            "ex_110": {
+                "en": "Invalid URL ...",
+                "fa": "آدرس اینترنتی نامعتبر"
+            }
+        },
+        {
+            "ex_111": {
+                "en": "Invalid Device ...",
+                "fa": "دستگاه نامعتبر"
+            }
+        },
+        {
+            "ex_112": {
+                "en": "Invalid Profile Image ...",
+                "fa": "تصویر پروفایل نامعتبر"
+            }
+        },
+        {
+            "ex_113": {
+                "en": "Invalid File ...",
+                "fa": "فایل نامعتبر"
+            }
+        },
+        {
+            "ex_114": {
+                "en": "Invalid Username ...",
+                "fa": "نام کاربری نامعتبر"
+            }
+        },
+        {
+            "ex_200": {
+                "en": "Not Found ...",
+                "fa": "یافت نشد"
+            }
+        },
+        {
+            "ex_201": {
+                "en": "Not Allowed ...",
+                "fa": "عدم تایید جواز"
+            }
+        },
+        {
+            "ex_202": {
+                "en": "Not Authorized ...",
+                "fa": "سطح دسترسی نامعتبر"
+            }
+        },
+        {
+            "ex_203": {
+                "en": "Not Visible ...",
+                "fa": "غیر قابل نمایش"
+            }
+        },
+        {
+            "ex_300": {
+                "en": "Account Locked out ...",
+                "fa": "حساب کاربری قفل شده است"
+            }
+        },
+        {
+            "ex_301": {
+                "en": "Login Failed ...",
+                "fa": "خطا در ورود"
+            }
+        },
+        {
+            "ex_302": {
+                "en": "User Registered Before ...",
+                "fa": "کاربر قبلا ثبت نام کرده است"
+            }
+        },
+        {
+            "ex_303": {
+                "en": "User Disabled ...",
+                "fa": "کاربر غیرفعال است"
+            }
+        },
+        {
+            "ex_304": {
+                "en": "Device Banned Until:(0)",
+                "fa": "دستگاه شما قفل شده است تا : (0)"
+            }
+        },
+        {
+            "ex_305": {
+                "en": "You can not Request Verification code Until:(0)",
+                "fa": "امکان درخواست کد اعتبارسنجی وجود ندارد تا : (0)"
+            }
+        },
+        {
+            "ex_306": {
+                "en": "Passwords Same ...",
+                "fa": "کلمه عبورها یکسان هستند"
+            }
+        },
+        {
+            "ex_307": {
+                "en": "Mobiles Same ...",
+                "fa": "شماره های تلفن یکسان هستند"
+            }
+        },
+        {
+            "ex_308": {
+                "en": "Emails Same ...",
+                "fa": "آدرس های پست الکترونیک یکسان هستند"
+            }
+        },
+        {
+            "ex_309": {
+                "en": "Mobile In Used ...",
+                "fa": "شماره تلفن قبلا ثبت شده است"
+            }
+        },
+        {
+            "ex_310": {
+                "en": "Email In Used ...",
+                "fa": "پست الکترونیک قبلا ثبت شده است"
+            }
+        },
+        {
+            "ex_311": {
+                "en": "Mobile Not Confirmed ...",
+                "fa": "تلفن همراه تایید نشده است"
+            }
+        },
+        {
+            "ex_312": {
+                "en": "Email Not Confirmed ...",
+                "fa": "پست الکترونیک تایید نشده است"
+            }
+        },
+        {
+            "ex_313": {
+                "en": "Post Banned ...",
+                "fa": "مطلب ممنوعه"
+            }
+        },
+        {
+            "ex_314": {
+                "en": "User Banned ...",
+                "fa": "کاربر ممنوعه"
+            }
+        },
+        {
+            "ex_400": {
+                "en": "Unknown Error ...",
+                "fa": "خطای نا شناخته"
+            }
+        },
+        {
+            "ex_401": {
+                "en": "Duplicate ...",
+                "fa": "مورد تکراری"
+            }
+        },
+        {
+            "ex_402": {
+                "en": "Action Failed ...",
+                "fa": "شکست عملیات"
+            }
+        },
+        {
+            "ex_403": {
+                "en": "Expired Date ...",
+                "fa": "تاریخ مصرف منقضی شده است"
+            }
+        },
+        {
+            "ex_404": {
+                "en": "Unavailable ...",
+                "fa": "غیر قابل اسفاده"
+            }
+        },
+        {
+            "ex_405": {
+                "en": "Max Allowed Tag Exceeded ...",
+                "fa": "تعداد برچسب ها بیش از جد مجاز است"
+            }
+        },
+        {
+            "ex_406": {
+                "en": "Timeout ...",
+                "fa": "اتمام مهلت زمانی"
+            }
+        },
+        {
+            "ex_500": {
+                "en": "Empty File ...",
+                "fa": "پرونده خالی است"
+            }
+        },
+        {
+            "ex_501": {
+                "en": "max File size exceeded ...",
+                "fa": "اندازه بیش از حد مجاز"
+            }
+        },
+        {
+            "ex_502": {
+                "en": "Unsupported File Type ...",
+                "fa": "گونه نامعتبر فایل"
+            }
+        },
+        {
+            "ex_503": {
+                "en": "Max Allowed Media Exceeded ...",
+                "fa": "تعداد رسانه ها بیش از حد مجاز است"
+            }
+        },
+        {
+            "ex_600": {
+                "en": "Invalid Configuration ...",
+                "fa": "پیکربندی اشتباه"
+            }
+        },
+        {
+            "ex_601": {
+                "en": "Storage Service Initiallization Failed ...",
+                "fa": "خطا در پیکربندی سامانه ذخیره سازی"
+            }
+        },
+        {
+            "ex_602": {
+                "en": "Message Service Initialization Failed ...",
+                "fa": "خطا در پیکربندی سامانه پیام"
+            }
+        },
+        {
+            "ex_900": {
+                "en": "Max Allowed Files Exceeded ...",
+                "fa": "تعداد فایل ها بیش از حد مجاز است"
+            }
+        },
+        {
+            "ex_901": {
+                "en": "Min Files Size Exceeded ...",
+                "fa": "مجموع اندازه فایل ها کمتر از حد مجاز است"
+            }
+        },
+        {
+            "ex_902": {
+                "en": "Max Files Size Exceeded ...",
+                "fa": "مجموع اندازه فایل ها بیش از حد مجاز است"
+            }
+        },
+        {
+            "ex_903": {
+                "en": "Must Accept Terms And Conditions ...",
+                "fa": "شرایط و ضوابط باید پذیرفته شوند"
+            }
+        },
+        {
+            "ex_904": {
+                "en": "Browser does not support Location Services ...",
+                "fa": "عدم پشتیبانی از سیستم موقعیت یاب"
+            }
+        },
+        {
+            "ex_905": {
+                "en": "You have rejected access to your Location ...",
+                "fa": "مجوز دسترسی به موقعیت خود را صادر نکرده اید"
+            }
+        },
+        {
+            "ex_906": {
+                "en": "Unable to determine your Location ...",
+                "fa": "دسترسی به موقعیت جغرافیایی امکان پذیر نیست"
+            }
+        },
+        {
+            "ex_907": {
+                "en": "Browser does not support Storage Services ...",
+                "fa": "عدم پشتیبانی از سیستم ذخیره سازی"
+            }
+        },
+        {
+            "ex_908": {
+                "en": "Must Logout to access content ...",
+                "fa": "برای دسترسی به محتوا باید از سامانه خارج شوید"
+            }
+        },
+        {
+            "ex_909": {
+                "en": "Invalid Locale ...",
+                "fa": "زبان انتخاب شده نامعتبر است"
+            }
+        },
+        {
+            "ex_910": {
+                "en": "Invalid User Selector ...",
+                "fa": "داده نامعتبر برای انتخاب کاربر"
+            }
+        }
+    ],
+    "frameworkLocaleResources": [
+        {
+            "app_name": {
+                "en": "xFrameworkClient",
+                "fa": "برنامه مبتنی بر چارچوب ایکس"
+            }
+        },
+        {
+            "company": {
+                "en": "SaherElm IT Center",
+                "fa": "فن آوران ساحر علم"
+            }
+        },
+        {
+            "id": {
+                "en": "ID",
+                "fa": "شناسه"
+            }
+        },
+        {
+            "file_name": {
+                "en": "File Name",
+                "fa": "نام فایل"
+            }
+        },
+        {
+            "error": {
+                "en": "Error",
+                "fa": "خطا"
+            }
+        },
+        {
+            "required": {
+                "en": "required",
+                "fa": "الزامی است"
+            }
+        },
+        {
+            "loading": {
+                "en": "loading",
+                "fa": "بارگزاری"
+            }
+        },
+        {
+            "username": {
+                "en": "Username",
+                "fa": "نام کاربری"
+            }
+        },
+        {
+            "password": {
+                "en": "Password",
+                "fa": "کلمه عبور"
+            }
+        },
+        {
+            "first_name": {
+                "en": "Firstname",
+                "fa": "نام"
+            }
+        },
+        {
+            "last_name": {
+                "en": "Lastname",
+                "fa": "نام خانوادگی"
+            }
+        },
+        {
+            "verified": {
+                "en": "Verified",
+                "fa": "تایید شده"
+            }
+        },
+        {
+            "unverified": {
+                "en": "Unverified",
+                "fa": "تایید نشده"
+            }
+        },
+        {
+            "thumbnail": {
+                "en": "Thumbnail",
+                "fa": "پیش نمایش"
+            }
+        },
+        {
+            "language": {
+                "en": "Language",
+                "fa": "زبان"
+            }
+        },
+        {
+            "take_screenshot": {
+                "en": "Take Screenshot",
+                "fa": "تصویر برداری ازمحیط"
+            }
+        },
+        {
+            "enable_capture_mode": {
+                "en": "Enable Capture Mode",
+                "fa": "فعالسازی حالت تصویر برداری"
+            }
+        },
+        {
+            "disable_capture_mode": {
+                "en": "Disable Capture Mode",
+                "fa": "غیرفعالسازی حالت تصویر برداری"
+            }
+        },
+        {
+            "be": {
+                "en": "Be",
+                "fa": "باشد"
+            }
+        },
+        {
+            "not_to_be": {
+                "en": "Not to be",
+                "fa": "نباشد"
+            }
+        },
+        {
+            "enabled": {
+                "en": "Enabled",
+                "fa": "فعال"
+            }
+        },
+        {
+            "disabled": {
+                "en": "Disabled",
+                "fa": "غیر فعال"
+            }
+        },
+        {
+            "banned": {
+                "en": "Banned",
+                "fa": "مسدود"
+            }
+        },
+        {
+            "un_banned": {
+                "en": "UnBanned",
+                "fa": "غیر مسدود"
+            }
+        },
+        {
+            "audio": {
+                "en": "Audio",
+                "fa": "صوت"
+            }
+        },
+        {
+            "video": {
+                "en": "Video",
+                "fa": "فیلم"
+            }
+        },
+        {
+            "document": {
+                "en": "Document",
+                "fa": "سند"
+            }
+        },
+        {
+            "cover_image": {
+                "en": "Cover Image",
+                "fa": "تصویر"
+            }
+        },
+        {
+            "image": {
+                "en": "Image",
+                "fa": "تصویر"
+            }
+        },
+        {
+            "avatar": {
+                "en": "Avatar",
+                "fa": "تصویر پروفایل"
+            }
+        },
+        {
+            "unknown": {
+                "en": "Unknown",
+                "fa": "ناشناس"
+            }
+        },
+        {
+            "location": {
+                "en": "Location",
+                "fa": "موقعیت جغرافیای"
+            }
+        },
+        {
+            "are_you_sure": {
+                "en": "Are You Sure ?",
+                "fa": "اطمینان دارید ؟"
+            }
+        },
+        {
+            "success_msg": {
+                "en": "Operation done Successfully ...",
+                "fa": "عملیات با موفقیت انجام شد"
+            }
+        },
+        {
+            "locked_msg": {
+                "en": "You have to finish/cancel current proccess for leaving",
+                "fa": "برای ترک این صفحه باید فعالیت جاری را لغو کرده و یا به اتمام برسانید"
+            }
+        },
+        {
+            "empty_content": {
+                "en": "Empty",
+                "fa": "خالی است"
+            }
+        },
+        {
+            "no_item": {
+                "en": "there is no Content",
+                "fa": "محتوایی ثبت نشده است"
+            }
+        },
+        {
+            "drag_drop_here": {
+                "en": "Drop File Here",
+                "fa": "محل رها کردن فایل"
+            }
+        },
+        {
+            "map_dialog_title": {
+                "en": "Show Location",
+                "fa": "نمایش موقعیت مکانی"
+            }
+        },
+        {
+            "map_dialog_select_title": {
+                "en": "Select Location",
+                "fa": "انتخاب موقعیت جغرافیایی"
+            }
+        },
+        {
+            "color_picker_dialog_title": {
+                "en": "Select Color",
+                "fa": "انتخاب رنگ"
+            }
+        },
+        {
+            "dismiss": {
+                "en": "Dismiss",
+                "fa": "رد کردن"
+            }
+        },
+        {
+            "accept": {
+                "en": "Accept",
+                "fa": "می پذیرم"
+            }
+        },
+        {
+            "ok": {
+                "en": "Ok",
+                "fa": "بسیار خب"
+            }
+        },
+        {
+            "save": {
+                "en": "Save",
+                "fa": "ذخیره"
+            }
+        },
+        {
+            "cancel": {
+                "en": "Cancel",
+                "fa": "لغو"
+            }
+        },
+        {
+            "retry": {
+                "en": "Retry",
+                "fa": "سعی مجدد"
+            }
+        },
+        {
+            "edit": {
+                "en": "Edit",
+                "fa": "ویرایش"
+            }
+        },
+        {
+            "reset": {
+                "en": "Reset",
+                "fa": "باز نشاندن"
+            }
+        },
+        {
+            "change": {
+                "en": "Change",
+                "fa": "تغییر"
+            }
+        },
+        {
+            "start": {
+                "en": "Start",
+                "fa": "آغاز"
+            }
+        },
+        {
+            "yes": {
+                "en": "Yes",
+                "fa": "بله"
+            }
+        },
+        {
+            "no": {
+                "en": "No",
+                "fa": "خیر"
+            }
+        },
+        {
+            "verify": {
+                "en": "Verify",
+                "fa": "تایید کردن"
+            }
+        },
+        {
+            "confirm": {
+                "en": "Confirm",
+                "fa": "تاییدیه"
+            }
+        },
+        {
+            "crop": {
+                "en": "Crop",
+                "fa": "برش"
+            }
+        },
+        {
+            "clear": {
+                "en": "Clear",
+                "fa": "پاک کردن"
+            }
+        },
+        {
+            "set": {
+                "en": "Set",
+                "fa": "تنظیم"
+            }
+        },
+        {
+            "select": {
+                "en": "Select",
+                "fa": "انتخاب"
+            }
+        },
+        {
+            "send": {
+                "en": "Send",
+                "fa": "ارسال"
+            }
+        },
+        {
+            "show": {
+                "en": "Show",
+                "fa": "نمایش دادن"
+            }
+        },
+        {
+            "hide": {
+                "en": "Hide",
+                "fa": "پنهان کردن"
+            }
+        },
+        {
+            "search": {
+                "en": "Search",
+                "fa": "جستجو"
+            }
+        },
+        {
+            "delete": {
+                "en": "Delete",
+                "fa": "حذف"
+            }
+        },
+        {
+            "clone": {
+                "en": "Clone",
+                "fa": "نمونه گیری"
+            }
+        },
+        {
+            "select_all": {
+                "en": "Select All",
+                "fa": "انتخاب همه"
+            }
+        },
+        {
+            "select_file": {
+                "en": "Select File(s)",
+                "fa": "انتخاب فایل(ها)"
+            }
+        },
+        {
+            "select_all_group": {
+                "en": "Select All Filtered Items",
+                "fa": "انتخاب همه موارد فیلتر شده"
+            }
+        },
+        {
+            "deselect_all": {
+                "en": "Deselect All",
+                "fa": "لغو همه انتخاب ها"
+            }
+        },
+        {
+            "deselect_all_group": {
+                "en": "Deselect All Filtered Items",
+                "fa": "لغو انتخاب همه موارد فیلتر شده"
+            }
+        },
+        {
+            "inverse_selection": {
+                "en": "Inverse Selection",
+                "fa": "انتخاب معکوس"
+            }
+        },
+        {
+            "selected_location": {
+                "en": "Selected Location",
+                "fa": "انتخاب محل"
+            }
+        },
+        {
+            "color": {
+                "en": "Color",
+                "fa": "رنگ"
+            }
+        },
+        {
+            "colors": {
+                "en": "Colors",
+                "fa": "رنگها"
+            }
+        },
+        {
+            "preset_colors": {
+                "en": "Preset Colors",
+                "fa": "رنگ های پیش فرض"
+            }
+        },
+        {
+            "copy_to_clipboard": {
+                "en": "Copy to Clipboard",
+                "fa": "ثبت در حافظه موقت"
+            }
+        },
+        {
+            "upload": {
+                "en": "Upload",
+                "fa": "بارگزاری"
+            }
+        },
+        {
+            "import": {
+                "en": "Import",
+                "fa": "وارد کردن"
+            }
+        },
+        {
+            "continue": {
+                "en": "Continue",
+                "fa": "ادامه"
+            }
+        },
+        {
+            "finish": {
+                "en": "Finish",
+                "fa": "پایان"
+            }
+        },
+        {
+            "enable": {
+                "en": "Enable",
+                "fa": "فعال"
+            }
+        },
+        {
+            "disable": {
+                "en": "Disable",
+                "fa": "غیر فعال"
+            }
+        },
+        {
+            "all": {
+                "en": "All",
+                "fa": "همه"
+            }
+        },
+        {
+            "new": {
+                "en": "New",
+                "fa": "جدید"
+            }
+        },
+        {
+            "add": {
+                "en": "Add",
+                "fa": "افزودن"
+            }
+        },
+        {
+            "update": {
+                "en": "Update",
+                "fa": "بروز رسانی"
+            }
+        },
+        {
+            "details": {
+                "en": "Details",
+                "fa": "جزئیات"
+            }
+        },
+        {
+            "translation": {
+                "en": "Translation",
+                "fa": "ترجمه"
+            }
+        },
+        {
+            "download": {
+                "en": "Download",
+                "fa": "دریافت"
+            }
+        },
+        {
+            "list": {
+                "en": "List",
+                "fa": "فهرست"
+            }
+        },
+        {
+            "options": {
+                "en": "Options",
+                "fa": "انتخاب ها"
+            }
+        },
+        {
+            "descriptions": {
+                "en": "Description",
+                "fa": "توضیحات"
+            }
+        },
+        {
+            "type": {
+                "en": "Type",
+                "fa": "نوع"
+            }
+        },
+        {
+            "media": {
+                "en": "Media",
+                "fa": "رسانه"
+            }
+        },
+        {
+            "medias": {
+                "en": "Medias",
+                "fa": "رسانه ها"
+            }
+        },
+        {
+            "go": {
+                "en": "Go",
+                "fa": "رفتن"
+            }
+        },
+        {
+            "input": {
+                "en": "Input",
+                "fa": "ورود"
+            }
+        },
+        {
+            "preview": {
+                "en": "Preview",
+                "fa": "پیش نمایش"
+            }
+        },
+        {
+            "close": {
+                "en": "Close",
+                "fa": "بستن"
+            }
+        },
+        {
+            "undo": {
+                "en": "Undo",
+                "fa": "لغو کردن"
+            }
+        },
+        {
+            "redo": {
+                "en": "Redo",
+                "fa": "انجام دوباره"
+            }
+        },
+        {
+            "refresh": {
+                "en": "Refresh",
+                "fa": "بازیابی"
+            }
+        },
+        {
+            "submit": {
+                "en": "Submit",
+                "fa": "ثبت"
+            }
+        },
+        {
+            "first": {
+                "en": "First",
+                "fa": "نخستین"
+            }
+        },
+        {
+            "last": {
+                "en": "Last",
+                "fa": "آخرین"
+            }
+        },
+        {
+            "previous": {
+                "en": "Previous",
+                "fa": "قبلی"
+            }
+        },
+        {
+            "next": {
+                "en": "Next",
+                "fa": "بعدی"
+            }
+        },
+        {
+            "back": {
+                "en": "Back",
+                "fa": "بازگشت"
+            }
+        },
+        {
+            "theme": {
+                "en": "Theme",
+                "fa": "پوسته"
+            }
+        },
+        {
+            "theme_mode": {
+                "en": "Theme Mode",
+                "fa": "حالت نمایشی"
+            }
+        },
+        {
+            "theme_dark": {
+                "en": "Dark",
+                "fa": "تیره"
+            }
+        },
+        {
+            "theme_light": {
+                "en": "Light",
+                "fa": "روشن"
+            }
+        },
+        {
+            "theme_name": {
+                "en": "Theme Name",
+                "fa": "نام پوسته"
+            }
+        },
+        {
+            "theme_name_description": {
+                "en": "Enter Theme name",
+                "fa": "نام پوسته را وارد کنید"
+            }
+        },
+        {
+            "theme_clone_title": {
+                "en": "Theme Cloning",
+                "fa": "نمونه گیری از پوسته"
+            }
+        },
+        {
+            "input_color_title": {
+                "en": "Color Value",
+                "fa": "تعیین رنگ"
+            }
+        },
+        {
+            "input_color_description": {
+                "en": "input color value",
+                "fa": "مقدار رنگ را وارد کنید"
+            }
+        },
+        {
+            "x_markdown_preview": {
+                "en": "Preview",
+                "fa": "پیش نمایش"
+            }
+        },
+        {
+            "x_markdown_image": {
+                "en": "Image",
+                "fa": "تصویر"
+            }
+        },
+        {
+            "x_markdown_link": {
+                "en": "Link",
+                "fa": "پیوند"
+            }
+        },
+        {
+            "x_markdown_ol": {
+                "en": "Ordered List",
+                "fa": "فهرست ترتیبی"
+            }
+        },
+        {
+            "x_markdown_ul": {
+                "en": "Unordered List",
+                "fa": "فهرست بدون ترتیب"
+            }
+        },
+        {
+            "x_markdown_quote": {
+                "en": "Quote",
+                "fa": "نقل قول"
+            }
+        },
+        {
+            "x_markdown_code": {
+                "en": "Code",
+                "fa": "کد منبع"
+            }
+        },
+        {
+            "x_markdown_heading": {
+                "en": "Heading",
+                "fa": "عنوان"
+            }
+        },
+        {
+            "x_markdown_italic": {
+                "en": "Italic",
+                "fa": "ایتالیک"
+            }
+        },
+        {
+            "x_markdown_bold": {
+                "en": "Bold",
+                "fa": "پر رنگ"
+            }
+        },
+        {
+            "x_markdown_guide": {
+                "en": "Markdown Guide",
+                "fa": "راهنمای نگارش"
+            }
+        },
+        {
+            "ide_mode": {
+                "en": "Code Style",
+                "fa": "نوع کد"
+            }
+        },
+        {
+            "ide_format": {
+                "en": "Code Frormatting",
+                "fa": "حالت دهی کد"
+            }
+        },
+        {
+            "required_length": {
+                "en": "require length ...",
+                "fa": "طول عبارت معتبر نیست"
+            }
+        },
+        {
+            "required_unique_chars": {
+                "en": "require unique chars ...",
+                "fa": "ورودی غیر تکراری نیاز است"
+            }
+        },
+        {
+            "require_digit": {
+                "en": "require digits ...",
+                "fa": "ورودی عددی نیاز است"
+            }
+        },
+        {
+            "require_lowercase": {
+                "en": "require lowercase letters ...",
+                "fa": "ورودی حروف کوچک نیاز است"
+            }
+        },
+        {
+            "require_uppercase": {
+                "en": "require uppercase letters ...",
+                "fa": "ورودی حروف بزرگ نیاز است"
+            }
+        },
+        {
+            "require_non_alphanumeric": {
+                "en": "require non alphanumeric ...",
+                "fa": "ورودی غیر عدد و حروف نیاز است"
+            }
+        }
+    ],
+    "customLocalResources": [
+        {
+            "default_loading": {
+                "en": "Loading",
+                "fa": "در حال بارگزاری"
+            }
+        },
+        {
+            "english": {
+                "en": "English",
+                "fa": "انگلیسی"
+            }
+        },
+        {
+            "persian": {
+                "en": "Persian",
+                "fa": "فارسی"
+            }
+        },
+        {
+            "actor": {
+                "en": "Actor",
+                "fa": "بازیگر"
+            }
+        },
+        {
+            "index": {
+                "en": "Index",
+                "fa": "اندیس"
+            }
+        },
+        {
+            "file": {
+                "en": "File",
+                "fa": "فایل"
+            }
+        },
+        {
+            "document": {
+                "en": "Document",
+                "fa": "سند"
+            }
+        },
+        {
+            "title": {
+                "en": "Title",
+                "fa": "عنوان"
+            }
+        },
+        {
+            "description": {
+                "en": "Description",
+                "fa": "توضیحات"
+            }
+        },
+        {
+            "author_id": {
+                "en": "Author Id",
+                "fa": "شناسه ناشر"
+            }
+        },
+        {
+            "attached_on": {
+                "en": "Attached On",
+                "fa": "تاریخ الصاق"
+            }
+        },
+        {
+            "viewed_on": {
+                "en": "Viewed On",
+                "fa": "تاریخ دیدار"
+            }
+        },
+        {
+            "check_mail": {
+                "en": "Check your mailbox ...",
+                "fa": "صندوق پست الکترونیک خود را بررسی کنید"
+            }
+        },
+        {
+            "name": {
+                "en": "Name",
+                "fa": "نام"
+            }
+        },
+        {
+            "type": {
+                "en": "Type",
+                "fa": "نوع"
+            }
+        },
+        {
+            "path": {
+                "en": "Path",
+                "fa": "مسیر"
+            }
+        },
+        {
+            "uploaded_on": {
+                "en": "Uploaded On",
+                "fa": "زمان بارگزاری"
+            }
+        },
+        {
+            "startup_page_title": {
+                "en": "Startup",
+                "fa": "آغازگر"
+            }
+        },
+        {
+            "startup_page_description": {
+                "en": "Start Loading Application",
+                "fa": "آغاز فرآیند بارگزاری سامانه"
+            }
+        },
+        {
+            "landing_page_title": {
+                "en": "First Page",
+                "fa": "صفحه نخست"
+            }
+        },
+        {
+            "landing_page_description": {
+                "en": "First Page was shown",
+                "fa": "نخستین صفحه ای که نمایش داده میشود"
+            }
+        },
+        {
+            "error_page_title": {
+                "en": "Error",
+                "fa": "خطا"
+            }
+        },
+        {
+            "error_page_description": {
+                "en": "Repport Details of happens Error",
+                "fa": "گزارش خطای واقع شده"
+            }
+        },
+        {
+            "not_authorized_page_title": {
+                "en": "Unauthorized Access",
+                "fa": "عدم دسترسی"
+            }
+        },
+        {
+            "not_authorized_page_description": {
+                "en": "required Permissions not found",
+                "fa": "جواز دسترسی احراز نشد"
+            }
+        },
+        {
+            "themes": {
+                "en": "Themes",
+                "fa": "پوسته ها"
+            }
+        },
+        {
+            "themes_description": {
+                "en": "Access All Theme Management tools",
+                "fa": "دسترسی به تمام امکانات مدیریت پوسته ها"
+            }
+        },
+        {
+            "theme_manager": {
+                "en": "Theme Manager",
+                "fa": "مدیریت پوسته"
+            }
+        },
+        {
+            "theme_manager_description": {
+                "en": "add/remove and edit Application Themes",
+                "fa": "مدیریت و دستکاری پوسته های نمایشی برنامه"
+            }
+        }
+    ]
+}

@@ -1,0 +1,116 @@
+<x-page
+  [loading]="isLoading"
+  [uiDisabled]="uiDisabled"
+  [color]="getValue(color) | async"
+  (loadMore)="loadMore.emit($event)"
+  [sideColor]="sideColor || 'primary'"
+  [hasSide]="getValue(hasSide) | async"
+  [actions]="getValue(actions) | async"
+  [sideSlot]="getValue(sideSlot) | async"
+  [sideType]="getValue(sideType) | async"
+  [menuState]="getValue(menuState) | async"
+  [menuActionProvider]="menuActionProvider"
+  [toolbarBackHandler]="toolbarBackHandler"
+  [showFooter]="getValue(showFooter) | async"
+  (scrolledEvent)="scrolledEvent.emit($event)"
+  [cssClass]="getArrayValue(cssClass) | async"
+  (imageCaptured)="handleImageCaptured($event)"
+  [footerColor]="getValue(footerColor) | async"
+  [toolbarTitle]="getValue(toolbarTitle) | async"
+  [toolbarColor]="getValue(toolbarColor) | async"
+  [actionsActionProvider]="actionsActionProvider"
+  (menuStateChange)="menuStateChange.emit($event)"
+  [sideMenuWidth]="getValue(sideMenuWidth) | async"
+  [toolbarEndSlotButtonsTemplate]="
+    getValue(toolbarEndSlotButtonsTemplate) | async
+  "
+  [toolbarHasBack]="getValue(toolbarHasBack) | async"
+  [toolbarHasMenu]="getValue(toolbarHasMenu) | async"
+  [toolbarLogoUrl]="getValue(toolbarLogoUrl) | async"
+  [toolbarStartSlotButtonsTemplate]="
+    getValue(toolbarStartSlotButtonsTemplate) | async
+  "
+  [toggleMenuWhen]="getValue(toggleMenuWhen) | async"
+  [toolbarShowBack]="getValue(toolbarShowBack) | async"
+  [toolbarSubTitle]="getValue(toolbarSubTitle) | async"
+  [toolbarShowMenu]="getValue(toolbarShowMenu) | async"
+  [toolbarBackSlot]="getValue(toolbarBackSlot) | async"
+  [toolbarMenuSlot]="getValue(toolbarMenuSlot) | async"
+  [toolbarShowLogo]="getValue(toolbarShowLogo) | async"
+  [toolbarLogoSlot]="getValue(toolbarLogoSlot) | async"
+  [sideMenuMaxWidth]="getValue(sideMenuMaxWidth) | async"
+  [sideMenuMinWidth]="getValue(sideMenuMinWidth) | async"
+  [toolbarTitleSlot]="getValue(toolbarTitleSlot) | async"
+  [scrollEndClasses]="getValue(scrollEndClasses) | async"
+  [scrollingClasses]="getValue(scrollingClasses) | async"
+  [toolbarShowTitle]="getValue(toolbarShowTitle) | async"
+  [captureTopOffset]="getValue(captureTopOffset) | async"
+  [scrollEventActionProvider]="scrollEventActionProvider"
+  [toolbarContentTemplate]="
+    (getValue(showToolbarContent) | async)
+      ? toolbarContentTemplate || toolbarContentTemplateRef
+      : undefined
+  "
+  [showPageRefresher]="getValue(showPageRefresher) | async"
+  [enableCaptureMode]="getValue(enableCaptureMode) | async"
+  (splitterStateChanged)="splitterStateChanged.emit($event)"
+  [scrollBehaviour]="getArrayValue(scrollBehaviour) | async"
+  [toolbarContentSlot]="getValue(toolbarContentSlot) | async"
+  [toolbarDefaultHref]="getValue(toolbarDefaultHref) | async"
+  [scrollStartClasses]="getValue(scrollStartClasses) | async"
+  [footerContentTemplate]="footerContentTemplate || footerRef"
+  [captureBottomOffset]="getValue(captureBottomOffset) | async"
+  [provideScrollEvents]="getValue(provideScrollEvents) | async"
+  [toolbarShowSubTitle]="getValue(toolbarShowSubTitle) | async"
+  [downloadCapturedImage]="getValue(downloadCapturedImage) | async"
+  [toolbarEndSlotButtonsTemplate]="toolbarEndSlotButtonsTemplateRef"
+  [toolbarShowProgressBar]="getValue(toolbarShowProgressBar) | async"
+  [toolbarProgressBarColor]="getValue(toolbarProgressBarColor) | async"
+  [showPageInfinityScroller]="getValue(showPageInfinityScroller) | async"
+>
+  <!-- Side Content -->
+  <div class="app-side-content" side>
+    <ng-container *ngTemplateOutlet="defaultSideMenuRef"></ng-container>
+  </div>
+
+  <!-- Page Content -->
+  <div class="app-page-content">
+    <ng-content></ng-content>
+  </div>
+</x-page>
+
+<!-- Page Footer -->
+<ng-template #footerRef>
+  <h4 class="x-footer-content">{{ resourceProvider(ResourceIDs.company) }}</h4>
+</ng-template>
+
+<!-- Page Side Menu -->
+<ng-template #defaultSideMenuRef>
+  <x-navigator
+    [items]="navPages"
+    [showChildIcon]="false"
+    [closeSiblings]="false"
+    [dividerColor]="'primary'"
+    [highlightColor]="'warning'"
+    [disableParentRouting]="true"
+    [childColor]="'primary-shade'"
+    [parentColor]="'tertiary-shade'"
+    [parentActiveColor]="'warning-shade'"
+    (itemSelected)="handleNavigatorItemSelected($event)"
+    *ngIf="(getValue(hasSide) | async) && (hasChildValue(navPages) | async)"
+  ></x-navigator>
+</ng-template>
+
+<!-- Toolbar Menu -->
+<ng-template #toolbarEndSlotButtonsTemplateRef>
+  <x-button
+    [type]="'icon'"
+    [color]="'cb-inherit'"
+    (click)="handleMoreButtonClicked($event)"
+  >
+    <x-icon [name]="'menu_vertical'" [color]="'light'"></x-icon>
+  </x-button>
+</ng-template>
+
+<!-- Toolbar Content -->
+<ng-template #toolbarContentTemplateRef> </ng-template>

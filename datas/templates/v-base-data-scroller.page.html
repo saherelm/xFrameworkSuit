@@ -1,0 +1,71 @@
+<v-page
+  [actions]="actions"
+  [hasSide]="hasSide"
+  [loading]="isLoading"
+  [uiDisabled]="uiDisabled"
+  [toolbarHasBack]="toolbarHasBack"
+  [toolbarShowBack]="toolbarShowBack"
+  [toolbarSubTitle]="toolbarSubTitle"
+  [toolbarShowProgressBar]="isLoading"
+  [toolbarBackHandler]="toolbarBackHandler"
+  [toolbarShowSubTitle]="toolbarShowSubTitle"
+>
+  <x-tabs
+    [showHeader]="false"
+    [loading]="isLoading"
+    [dynamicHeight]="true"
+    [uiDisabled]="uiDisabled"
+    [selectedIndex]="selectedTab"
+    [color]="ColorNames.Transparent"
+    [actionProvider]="tabsActionProvider"
+  >
+    <!-- None -->
+    <x-tab></x-tab>
+
+    <!-- List -->
+    <x-tab>
+      <ng-container *ngTemplateOutlet="modelListRef"></ng-container>
+    </x-tab>
+
+    <!-- Details -->
+    <x-tab>
+      <ng-container *ngTemplateOutlet="modelDetailsRef"></ng-container>
+    </x-tab>
+  </x-tabs>
+</v-page>
+
+<!-- MODEL List Template -->
+<ng-template #modelListRef>
+  <x-data-scroller
+    [showEmpty]="false"
+    [task]="queryFetcher"
+    [query]="dataScrollerQuery"
+    [result]="dataScrollerResult"
+    [emptyHasRefresh]="!isLoading"
+    [actionProvider]="dataScrollerActionProvider"
+    (taskReady)="handleDataScrollerTaskReady($event)"
+    (queryChange)="handleDataScrollerQueryChanged($event)"
+  >
+    <ng-container *ngIf="dataScrollerResult && dataScrollerResult.count > 0">
+      <ng-container *ngFor="let item of dataScrollerResult.items">
+        <ng-container
+          *ngTemplateOutlet="modelListItemRef; context: {$implicit: item}"
+        ></ng-container>
+      </ng-container>
+    </ng-container>
+  </x-data-scroller>
+</ng-template>
+
+<!-- Item Details Template -->
+<ng-template #modelDetailsRef>
+  <ng-container *ngIf="selectedModel">
+    <!-- TODO: add Item View Presenter for Details Tab here ... -->
+  </ng-container>
+</ng-template>
+
+<!-- Model List Item Template -->
+<ng-template #modelListItemRef let-item>
+  <ng-container *ngIf="item as ITEMTYPE;">
+    <!-- TODO: add item View Presenter for Master(Summary) in ListItem here ... -->
+  </ng-container>
+</ng-template>

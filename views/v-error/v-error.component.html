@@ -1,0 +1,100 @@
+<!-- Component Template -->
+<ng-container *ngIf="getValue(wrapWithCard) | async; else componentsRef">
+  <x-card
+    class="v-card"
+    [color]="getValue(cardColor) | async"
+    [ngClass]="getValue(cardCssClass) | async"
+    [isInPage]="getValue(isInPage) | async"
+    [title]="getResourceValue(cardTitle) | async"
+    [showFooter]="getValue(cardShowFooter) | async"
+    [showActions]="getValue(cardShowActions) | async"
+    [subTitle]="getResourceValue(cardSubTitle) | async"
+    [foregroundColor]="getValue(cardForegroundColor) | async"
+    [showHeader]="
+      (notEmptyValue(cardTitle) | async) ||
+      (notEmptyValue(cardSubTitle) | async)
+    "
+  >
+    <!-- Content -->
+    <ng-container *ngTemplateOutlet="componentsRef"></ng-container>
+
+    <!-- Actions -->
+    <div class="x-actions" actions *ngIf="getValue(cardShowActions) | async">
+      <ng-content select="[actions]"></ng-content>
+    </div>
+
+    <!-- Footer -->
+    <div class="x-footer" footer *ngIf="getValue(cardShowFooter) | async">
+      <ng-content select="[footer]"></ng-content>
+    </div>
+  </x-card>
+</ng-container>
+
+<!-- Component's itSelf Template -->
+<ng-template #componentsRef>
+  <div
+    class="v-component-wrapper"
+    *ngIf="hasChildValue(errors) | async"
+    [ngClass]="getValue(cssClass) | async"
+    [xColor]="getBackgroundColorValue() | async"
+  >
+    <!-- Title -->
+    <ng-container *ngTemplateOutlet="errorTitleRef"></ng-container>
+
+    <!-- Errors -->
+    <ng-container
+      *ngTemplateOutlet="
+        (countChildsValue(errors) | async) > 1
+          ? multipleErrorRef
+          : singleErrorRef
+      "
+    >
+    </ng-container>
+
+    <!-- Actions -->
+    <ng-container *ngIf="!(getValue(wrapWithCard) | async)">
+      <div class="x-actions">
+        <ng-content select="[actions]"></ng-content>
+      </div>
+    </ng-container>
+  </div>
+</ng-template>
+
+<!-- Error Title Template -->
+<ng-template #errorTitleRef>
+  <div class="v-error-title" *ngIf="notEmptyValue(this.errorTitle) | async">
+    <span
+      [isForeground]="true"
+      class="v-error-title-text"
+      [xColor]="getErrorTitleColor() | async"
+      >{{ getErrorTitle() | async }}</span
+    >
+  </div>
+</ng-template>
+
+<!-- Single Error Template -->
+<ng-template #singleErrorRef>
+  <div class="v-error-message v-single-error">
+    <span [isForeground]="true" [xColor]="getColor() | async">
+      {{ getSingleErrorMessage() | async }}
+    </span>
+  </div>
+</ng-template>
+
+<!-- Multiple Error Template -->
+<ng-template #multipleErrorRef>
+  <div class="v-error-message v-multiple-error">
+    <ul
+      class="v-error-list"
+      [isForeground]="true"
+      [xColor]="getColor() | async"
+    >
+      <li
+        class="v-error-list-item"
+        *ngFor="let error of getArrayValue(errors) | async"
+      >
+        {{ error }}
+      </li>
+    </ul>
+  </div>
+</ng-template>

@@ -1,0 +1,117 @@
+<section
+  (xOnEnter)="handleItemFormSubmit()"
+  (xOnEscape)="handleItemFormClear()"
+>
+  <x-form
+    class="v-card"
+    [formConfig]="formConfig"
+    [uiDisabled]="uiDisabled"
+    [actionProvider]="formActionProvider"
+    [isInPage]="getValue(isInPage) | async"
+    [cardColor]="getValue(cardColor) | async"
+    [cardActionProvider]="cardActionProvider"
+    [cssClass]="getArrayValue(cssClass) | async"
+    [fillColor]="getValue(formFillColor) | async"
+    [hintColor]="getValue(formHintColor) | async"
+    [wrapWithCard]="getValue(wrapWithCard) | async"
+    [validColor]="getValue(formValidColor) | async"
+    [cardTitle]="getResourceValue(cardTitle) | async"
+    [accentColor]="getValue(formAccentColor) | async"
+    [activeColor]="getValue(formActiveColor) | async"
+    *ngIf="notNullOrUndefinedValue(formConfig) | async"
+    [cardShowFooter]="getValue(cardShowFooter) | async"
+    [invalidColor]="getValue(formInvalidColor) | async"
+    [pendingColor]="getValue(formPendingColor) | async"
+    [regularColor]="getValue(formRegularColor) | async"
+    (valueChanged)="handleItemFormValueChanged($event)"
+    (statusChanged)="handleItemFormStatusChanged($event)"
+    [disabledColor]="getValue(formDisabledColor) | async"
+    [cardShowActions]="getValue(cardShowActions) | async"
+    [cardSubTitle]="getResourceValue(cardSubTitle) | async"
+    [cardForegroundColor]="getValue(cardForegroundColor) | async"
+    [disabledFillColor]="getValue(formDisabledFillColor) | async"
+    [applyStatusOnControls]="getValue(applyStatusOnControl) | async"
+  >
+    <!-- Actions -->
+    <div class="x-actions" actions *ngIf="getValue(cardShowActions) | async">
+      <!-- Default Actions -->
+      <section *ngIf="getValue(showDefaultActions) | async">
+        <x-slotter [layout]="SlotLayouts.HORIZONTAL">
+          <!-- Submit -->
+          <x-slot
+            [name]="SlotNames.START"
+            [cssClass]="'ion-text-start'"
+            *ngIf="getValue(showSubmitAction) | async"
+          >
+            <x-button
+              [color]="ColorNames.Success"
+              [icon]="IconNames.checkmark"
+              [iconColor]="ColorNames.Success"
+              [title]="this.ResourceIDs.submit"
+              (clicked)="handleItemFormSubmit()"
+              [uiDisabled]="uiDisabled || !isValid"
+              [type]="
+                (getValue(showOnlyIconActions) | async)
+                  ? ButtonTypes.Icon
+                  : ButtonTypes.Raised
+              "
+            ></x-button>
+          </x-slot>
+
+          <!-- Reset -->
+          <x-slot
+            [name]="SlotNames.CENTER"
+            [cssClass]="'ion-text-center'"
+            *ngIf="getValue(showResetAction) | async"
+          >
+            <x-button
+              [icon]="IconNames.refresh"
+              [color]="ColorNames.Warning"
+              [iconColor]="ColorNames.Warning"
+              [title]="this.ResourceIDs.reset"
+              (clicked)="handleItemFormReset()"
+              [type]="
+                (getValue(showOnlyIconActions) | async)
+                  ? ButtonTypes.Icon
+                  : ButtonTypes.Raised
+              "
+              [uiDisabled]="uiDisabled || isSameAsDefault"
+            ></x-button>
+          </x-slot>
+
+          <!-- Clear -->
+          <x-slot
+            [name]="SlotNames.END"
+            [cssClass]="'ion-text-end'"
+            *ngIf="getValue(showClearAction) | async"
+          >
+            <x-button
+              [icon]="IconNames.clear"
+              [color]="ColorNames.Danger"
+              [iconColor]="ColorNames.Danger"
+              [title]="this.ResourceIDs.clear"
+              (clicked)="handleItemFormClear()"
+              [type]="
+                (getValue(showOnlyIconActions) | async)
+                  ? ButtonTypes.Icon
+                  : ButtonTypes.Raised
+              "
+              [uiDisabled]="uiDisabled || isEmptyCurrentValue"
+            ></x-button>
+          </x-slot>
+        </x-slotter>
+      </section>
+
+      <!-- Content -->
+      <ng-content
+        *ngIf="!(getValue(showDefaultActions) | async)"
+        select="[actions]"
+      ></ng-content>
+    </div>
+
+    <!-- Footer -->
+    <div class="x-footer" footer *ngIf="getValue(cardShowFooter) | async">
+      <ng-content select="[footer]"></ng-content>
+    </div>
+  </x-form>
+</section>

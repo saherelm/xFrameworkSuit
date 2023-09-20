@@ -1,0 +1,24 @@
+<v-page
+  [actions]="actions"
+  [hasSide]="hasSide"
+  [loading]="isLoading"
+  [uiDisabled]="uiDisabled"
+  [toolbarHasBack]="toolbarHasBack"
+  [toolbarShowBack]="toolbarShowBack"
+  [toolbarSubTitle]="toolbarSubTitle"
+  [toolbarShowProgressBar]="isLoading"
+  [toolbarBackHandler]="toolbarBackHandler"
+  [showToolbarEndSlot]="showToolbarEndSlot"
+  [showToolbarContent]="showToolbarContent"
+  [toolbarShowSubTitle]="toolbarShowSubTitle"
+>
+  <v-error
+    [isInPage]="true"
+    [errorTitle]="''"
+    [wrapWithCard]="true"
+    *ngIf="hasChildValue(errors) | async"
+    [errors]="getArrayValue(errors) | async"
+    [cardTitle]="AppResourceIDs.error_page_title"
+  >
+  </v-error>
+</v-page>

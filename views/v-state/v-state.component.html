@@ -1,0 +1,17 @@
+<div style="display: inline-block" *ngIf="notNullOrUndefinedValue(state) | async">
+    <!-- State Label -->
+    <span
+      [isForeground]="true"
+      *ngIf="getValue(showContent) | async"
+      [xColor]="getColor() | async"
+      >{{ getLabel() | async }}</span
+    >
+  
+    <!-- State Icon -->
+    <x-icon
+      [color]="getColor() | async"
+      [name]="getIconName() | async"
+      [matTooltip]="getLabel() | async"
+    ></x-icon>
+  </div>
+  

@@ -1,0 +1,129 @@
+<section
+  #vBaseDialogContainer
+  class="v-base-dialog"
+  [isForeground]="false"
+  [xColor]="getBackgroundColor() | async"
+  [ngClass]="getDialogContainerClasses() | async"
+>
+  <!-- Title Toolbar -->
+  <section #vBaseDialogToolbar class="v-base-dialog-toolbar">
+    <!-- Toolbar -->
+    <ion-toolbar
+      [xColor]="getToolbarColor() | async"
+      [ngClass]="getDialogToolbarClasses() | async"
+    >
+      <!-- Slots -->
+      <div class="v-base-dialog-toolbar-area">
+        <x-slotter>
+          <!-- Start -->
+          <x-slot
+            [name]="SlotNames.START"
+            [cssClass]="['ion-text-start', 'ion-float-start']"
+          >
+            <div
+              matRipple
+              (click)="handleCloseEditor()"
+              class="v-base-dialog-toolbar-item v-base-dialog-toolbar-button center-vertical-flex"
+            >
+              <x-icon
+                [name]="backIcon"
+                [loading]="isLoading"
+                [color]="'cb-inherit'"
+                [uiDisabled]="uiDisabled"
+              ></x-icon>
+            </div>
+          </x-slot>
+
+          <!-- Center -->
+          <x-slot [name]="SlotNames.CENTER" [cssClass]="'ion-text-center'">
+            <ion-title
+              class="v-base-dialog-toolbar-item center-vertical-flex direction-ltr"
+            >
+              <h3>
+                {{ getTitle() | async }}
+              </h3>
+            </ion-title>
+          </x-slot>
+
+          <!-- End -->
+          <x-slot
+            [name]="SlotNames.END"
+            [cssClass]="['ion-text-end', 'ion-float-end']"
+          >
+            <div
+              matRipple
+              *ngIf="canSelect() | async"
+              (click)="handleSaveEditor()"
+              [class.x-disabled]="
+                !(hasSelectedValue() | async) ||
+                (getValue(isSameContent) | async) ||
+                ((notNullOrUndefinedValue(xIDEComponent) | async) &&
+                  !xIDEComponent.getCurrentTabDescritor().canSave)
+              "
+              [matRippleDisabled]="
+                !(hasSelectedValue() | async) ||
+                (getValue(isSameContent) | async) ||
+                ((notNullOrUndefinedValue(xIDEComponent) | async) &&
+                  !xIDEComponent.getCurrentTabDescritor().canSave)
+              "
+              class="v-base-dialog-toolbar-item v-base-dialog-toolbar-button center-vertical-flex"
+            >
+              <x-icon
+                [color]="'cb-inherit'"
+                [name]="IconNames.save"
+                [loading]="getValue(isLoading) | async"
+                [uiDisabled]="getValue(uiDisabled) | async"
+              ></x-icon>
+            </div>
+          </x-slot>
+        </x-slotter>
+      </div>
+    </ion-toolbar>
+
+    <!-- Progressbar -->
+    <ion-progress-bar
+      type="indeterminate"
+      *ngIf="canShowProgressBar() | async"
+      [color]="getProgressBarColor() | async"
+    ></ion-progress-bar>
+  </section>
+
+  <!-- Components -->
+  <section class="v-base-dialog-content">
+    <!-- Content -->
+    <ng-container *ngTemplateOutlet="contentRef"></ng-container>
+  </section>
+</section>
+
+<!--          -->
+<!-- Template -->
+<!--          -->
+
+<!-- Content Template -->
+<ng-template #contentRef>
+  <x-ide
+    #xIde
+    [theme]="theme() | async"
+    [content]="content() | async"
+    [minLines]="minLines() | async"
+    [maxLines]="maxLines() | async"
+    [fontSize]="fontSize() | async"
+    [readonly]="readonly() | async"
+    [alignTabs]="alignTabs() | async"
+    [wordWrapping]="wordWrapping() | async"
+    [showActionBar]="showActionBar() | async"
+    [defaultTabName]="defaultTabName() | async"
+    [tabHeaderColor]="tabHeaderColor() | async"
+    [activeTabColor]="activeTabColor() | async"
+    [actionBarColor]="actionBarColor() | async"
+    [actionProvider]="actionProvider() | async"
+    [showLineNumbers]="showLineNumbers() | async"
+    [showPrintMargin]="showPrintMargin() | async"
+    [showFoldWidgets]="showFoldWidgets() | async"
+    (contentChange)="handleIDEContentChanged($event)"
+    [highlightActiveLine]="highlightActiveLine() | async"
+    [basicAutocompletion]="basicAutocompletion() | async"
+    [availableActionBarItems]="availableActionBarItems() | async"
+    [defaultActionBarItemColor]="defaultActionBarItemColor() | async"
+  ></x-ide>
+</ng-template>

@@ -1,0 +1,215 @@
+<v-page
+  [actions]="actions"
+  [hasSide]="hasSide"
+  [loading]="isLoading"
+  [uiDisabled]="uiDisabled"
+  [toolbarHasBack]="toolbarHasBack"
+  [toolbarShowBack]="toolbarShowBack"
+  [toolbarSubTitle]="toolbarSubTitle"
+  [toolbarShowProgressBar]="isLoading"
+  [toolbarBackHandler]="toolbarBackHandler"
+  [toolbarShowSubTitle]="toolbarShowSubTitle"
+>
+  <x-tabs
+    [showHeader]="false"
+    [loading]="isLoading"
+    [dynamicHeight]="true"
+    [uiDisabled]="uiDisabled"
+    [selectedIndex]="selectedTab"
+    [color]="ColorNames.Transparent"
+    [actionProvider]="tabsActionProvider"
+  >
+    <!-- None -->
+    <x-tab></x-tab>
+
+    <!-- List -->
+    <x-tab>
+      <ng-container *ngTemplateOutlet="modelListRef"></ng-container>
+    </x-tab>
+
+    <!-- Details -->
+    <x-tab>
+      <ng-container *ngTemplateOutlet="modelDetailsRef"></ng-container>
+    </x-tab>
+
+    <!-- AddOrUpdate -->
+    <x-tab>
+      <ng-container *ngTemplateOutlet="modelAddOrUpdateRef"></ng-container>
+    </x-tab>
+  </x-tabs>
+</v-page>
+
+<!-- List Template -->
+<ng-template #modelListRef>
+  <x-card
+    [isInPage]="true"
+    [showHeader]="true"
+    [title]="toolbarSubTitle"
+    class="v-card v-no-margin-card"
+  >
+    <!-- Search -->
+    <x-search-bar
+      class="v-search"
+      [color]="ColorNames.Primary"
+      [value]="dataPagerQuery.filter"
+      *ngIf="getValue(canSearch) | async"
+      [searchInputColor]="ColorNames.Primary"
+      (queryChange)="handleSearchbarQuryChanged($event)"
+    ></x-search-bar>
+
+    <!-- Data Pager -->
+    <x-data-pager
+      class="v-card"
+      [loading]="isLoading"
+      [task]="queryFetcher"
+      [query]="dataPagerQuery"
+      [uiDisabled]="uiDisabled"
+      [result]="dataPagerResult"
+      [itemTemplate]="dataPagerPageRef"
+      [type]="DataPagerPresentTypes.Page"
+      [paginatorColor]="ColorNames.Primary"
+      [showPaginator]="showDataPagerPaginator"
+      (emptyRefresh)="handleResetDataPagerQuery()"
+      (taskReady)="handleDataPagerTaskReady($event)"
+      (queryChange)="handleDataPagerQueryChanged($event)"
+      [paginatorPosition]="DataPagerPaginatorPositions.Below"
+    ></x-data-pager>
+  </x-card>
+</ng-template>
+
+<!-- Details Template -->
+<ng-template #modelDetailsRef>
+  <ng-container *ngIf="selectedModel">
+    <ng-container
+      *ngTemplateOutlet="modelPresenterRef; context: {
+      isInPage: true,
+      wrapWithCard: true,
+      model: selectedModel,
+      showSubCategories: true,
+      title: selectedModel.name,
+      cssClass: 'v-model-details',
+      modelKeyProvider: modelKeyProvider,
+      labelColor: ColorNames.SecondaryShade,
+      modelValueProvider: modelValueProvider,
+      hiddenLabelModelKeys: hiddenLabelModelKeys,
+      sortOrderModelKeys: detailsSortOrderModelKeys,
+      availableModelKeys: detailsAvailableModelKeys,
+      presentType: ModelPresentTypes.AsDescriptionList
+    }"
+    ></ng-container>
+  </ng-container>
+</ng-template>
+
+<!-- AddOrUpdate Template -->
+<ng-template #modelAddOrUpdateRef>
+  <ng-container *ngIf="selectedModel">
+    <ng-container
+      *ngTemplateOutlet="modelPresenterRef; context: {
+          isInPage: true,
+          hasActions: true,
+          wrapWithCard: true,
+          model: selectedModel,
+          formActiveColor: ColorNames.Light,
+          formFillColor: ColorNames.Tertiary,
+          actionProvider: modelActionProvider,
+          presentType: ModelPresentTypes.AsForm,
+          availableModelKeys: getAddOrUpdateAvailableModelKeys(),
+          title: isSameAsDefault(selectedModel) ? ResourceIDs.add : ResourceIDs.edit
+        }"
+    ></ng-container>
+  </ng-container>
+</ng-template>
+
+<!-- Data Pager Page Template -->
+<ng-template #dataPagerPageRef let-items>
+  <ng-container *ngIf="hasChildValue(dataPagerResultListItems) | async">
+    <x-list [itemTemplate]="listItemRef" [items]="dataPagerResultListItems">
+    </x-list>
+  </ng-container>
+</ng-template>
+
+<!-- List Item Template -->
+<ng-template #listItemRef let-item>
+  <ng-container
+    *ngTemplateOutlet="modelPresenterRef; context: {
+      model: item.data,
+      labelColor: ColorNames.SecondaryShade,
+      modelKeyProvider: modelKeyProvider,
+      sortOrderModelKeys: sortOrderModelKeys,
+      availableModelKeys: availableModelKeys,
+      modelValueProvider: modelValueProvider,
+      hiddenLabelModelKeys: hiddenLabelModelKeys,
+      presentType: ModelPresentTypes.AsDescriptionList
+    }"
+  ></ng-container>
+</ng-template>
+
+<!-- Model Presenter Ref -->
+<ng-template
+  #modelPresenterRef
+  let-model="model"
+  let-color="color"
+  let-title="title"
+  let-isInPage="isInPage"
+  let-cssClass="cssClass"
+  let-cardColor="cardColor"
+  let-hasActions="hasActions"
+  let-labelColor="labelColor"
+  let-showLabels="showLabels"
+  let-valueColor="valueColor"
+  let-presentType="presentType"
+  let-wrapWithCard="wrapWithCard"
+  let-cardSubTitle="cardSubTitle"
+  let-formFillColor="formFillColor"
+  let-actionProvider="actionProvider"
+  let-formActiveColor="formActiveColor"
+  let-foregroundColor="foregroundColor"
+  let-hiddenModelKeys="hiddenModelKeys"
+  let-formInvalidColor="formInvalidColor"
+  let-formPendingColor="formPendingColor"
+  let-formRegularColor="formRegularColor"
+  let-modelKeyProvider="modelKeyProvider"
+  let-showSubCategories="showSubCategories"
+  let-formDisabledColor="formDisabledColor"
+  let-sortOrderModelKeys="sortOrderModelKeys"
+  let-availableModelKeys="availableModelKeys"
+  let-modelValueProvider="modelValueProvider"
+  let-formActionProvider="formActionProvider"
+  let-hiddenLabelModelKeys="hiddenLabelModelKeys"
+  let-formDisabledFillColor="formDisabledFillColor"
+  let-descriptionListActionProvider="descriptionListActionProvider"
+  let-stringTranslationPresentType="stringTranslationPresentType"
+>
+  <!-- TODO: Use View Presenter Component's Selector here ... -->
+  <!-- <v-model
+    [model]="model"
+    [title]="title"
+    [color]="color"
+    [cssClass]="cssClass"
+    [isInPage]="isInPage"
+    [cardColor]="cardColor"
+    [showLabels]="showLabels"
+    [labelColor]="labelColor"
+    [valueColor]="valueColor"
+    [presentType]="presentType"
+    [cardSubTitle]="cardSubTitle"
+    [wrapWithCard]="wrapWithCard"
+    [formFillColor]="formFillColor"
+    [actionProvider]="actionProvider"
+    [foregroundColor]="foregroundColor"
+    [formActiveColor]="formActiveColor"
+    [hiddenModelKeys]="hiddenModelKeys"
+    [modelKeyProvider]="modelKeyProvider"
+    [formRegularColor]="formRegularColor"
+    [formInvalidColor]="formInvalidColor"
+    [formPendingColor]="formPendingColor"
+    [formDisabledColor]="formDisabledColor"
+    [sortOrderModelKeys]="sortOrderModelKeys"
+    [availableModelKeys]="availableModelKeys"
+    [modelValueProvider]="modelValueProvider"
+    [formActionProvider]="formActionProvider"
+    [hiddenLabelModelKeys]="hiddenLabelModelKeys"
+    [formDisabledFillColor]="formDisabledFillColor"
+  >
+  </v-model> -->
+</ng-template>

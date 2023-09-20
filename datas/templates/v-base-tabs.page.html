@@ -1,0 +1,51 @@
+<v-page
+  [actions]="actions"
+  [hasSide]="hasSide"
+  [loading]="isLoading"
+  [uiDisabled]="uiDisabled"
+  [toolbarHasBack]="toolbarHasBack"
+  [toolbarShowBack]="toolbarShowBack"
+  [toolbarSubTitle]="toolbarSubTitle"
+  [toolbarShowProgressBar]="isLoading"
+  [toolbarBackHandler]="toolbarBackHandler"
+  [toolbarShowSubTitle]="toolbarShowSubTitle"
+>
+  <!-- Tabs -->
+  <x-tabs
+    [swipable]="false"
+    [showHeader]="true"
+    [loading]="isLoading"
+    [dynamicHeight]="true"
+    [uiDisabled]="uiDisabled"
+    [selectedIndex]="selectedTab"
+    [alignTabs]="TabAligns.STRETCH"
+    [color]="ColorNames.Transparent"
+    [actionProvider]="tabsActionProvider"
+    (selectedTabChange)="handleTabChanged($event)"
+  >
+    <!-- Tab 1 -->
+    <x-tab>
+      <!-- Label -->
+      <div x-tab-label>
+        <!-- TODO: replace this by resources ... -->
+        {{ getResourceValue('Tab 1') | async }}
+      </div>
+
+      <!-- Content -->
+      <div class="tab-content">
+        <ng-container *ngTemplateOutlet="tab1Ref"></ng-container>
+      </div>
+    </x-tab>
+  </x-tabs>
+</v-page>
+
+<!--           -->
+<!-- Templates -->
+<!--           -->
+
+<!-- TODO: Add all Tabs Templates here ... -->
+<ng-template #tab1Ref></ng-template>
+
+<!--            -->
+<!-- /Templates -->
+<!--            -->

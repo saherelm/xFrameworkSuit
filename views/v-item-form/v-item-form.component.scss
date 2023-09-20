@@ -1,0 +1,28 @@
+.v-item {
+  margin: {
+    left: 4px;
+    right: 4px;
+  }
+}
+
+.v-item-title {
+  &::after {
+    content: ": ";
+  }
+}
+
+.v-item-title,
+.v-item-value {
+  display: inline-block;
+
+  &.mobile {
+    display: block;
+  }
+}
+
+::ng-deep.mat-form-field-infix {
+  margin: {
+    left: 4px;
+    right: 4px;
+  }
+}
